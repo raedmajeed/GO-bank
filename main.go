@@ -1,18 +1,17 @@
 package main
 
 import (
-	"raedmajeed/controllers"
 	"raedmajeed/di"
 )
 
 func main() {
 	
-	di.InitApi()
+	h := di.InitApi()
 	// http.ListenAndServe(":8010", nil)
-	https := controllers.HandlerStruct{}
-	https.Handlers()
+	// https := controllers.HandlerStruct{}
+	h.Handlers()
 
-	https.Start()
+	h.Start()
 
 	
 }

@@ -13,9 +13,10 @@ type RepositoryImpl struct {
 }
 
 // Create implements repository.
-func (s *RepositoryImpl) Create(user model.Entity) error {
+func (s *RepositoryImpl) CreateUser(user model.Entity) error {
 	fmt.Println("reached repositroy =====.>>.........")
-	s.DB.Create(&user)
+	fmt.Println(user)
+	s.DB.Create(user)
 
 	return nil
 }
@@ -27,7 +28,7 @@ func (s *RepositoryImpl) FindAll(user model.Entity) error {
 }
 
 func NewRepositoryImpl(DB *gorm.DB) interfaces.Repository {
-	return &RepositoryImpl{
+	return &RepositoryImpl {
 		DB: DB,
 	}
 }
